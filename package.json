@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Nosikov-studio/r072s-video#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.1.0"
   }
 }
