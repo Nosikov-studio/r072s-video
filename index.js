@@ -46,12 +46,23 @@ let latestFrame = null;
 // });
 
 // Простая страница для просмотра трансляции
+// app.get('/', (req, res) => {
+//   res.send(`
+//     <html>
+//       <body>
+//         <h2>Видеотрансляция с удалённой камеры</h2>
+//          <img src="/stream" style="max-width: 100%">
+//       </body>
+//     </html>
+//   `);
+// });
+
 app.get('/', (req, res) => {
   res.send(`
     <html>
       <body>
         <h2>Видеотрансляция с удалённой камеры</h2>
-        <img src="/stream" style="max-width: 100%">
+         
       </body>
     </html>
   `);
