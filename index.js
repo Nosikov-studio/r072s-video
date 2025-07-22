@@ -15,7 +15,7 @@ app.use(cors({
 }));
 
 // Для обработки OPTIONS-запросов (preflight)
-app.options('*', cors());
+//app.options('*', cors());
 
 // Приём JPEG кадров с камеры
 app.post('/upload', express.raw({ type: 'image/jpeg', limit: '5mb' }), (req, res) => {
