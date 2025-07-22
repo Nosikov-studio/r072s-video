@@ -57,16 +57,7 @@ app.get('/', (req, res) => {
   `);
 });
 
-// app.get('/', (req, res) => {
-//   res.send(`
-//     <html>
-//       <body>
-//         <h2>+++Видеотрансляция с удалённой камеры+++</h2>
-         
-//       </body>
-//     </html>
-//   `);
-// });
+
 
 app.listen(port, () => {
   console.log(`Сервер запущен http://85.28.47.165:${port}`);

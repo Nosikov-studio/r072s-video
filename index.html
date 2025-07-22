@@ -23,7 +23,7 @@
 
             canvas.toBlob(blob => {
               // Отправляем POST запрос с кадром на сервер по публичному IP
-              fetch('http://85.28.47.165:3000/upload', {
+              fetch('https://truruki.ru/upload', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'image/jpeg'
