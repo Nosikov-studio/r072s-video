@@ -8,14 +8,14 @@ let latestFrame = null;
 
 // Настройка CORS - разрешаем запросы от камеры (можно заменить '*' на конкретный домен/адрес)
 app.use(cors({
-  origin: 'https://truruky.ru', // или укажите IP/домен камеры, например 'http://камера:порт'
+  origin: ['https://truruky.ru', 'https://www.truruky.ru', 'https://truruki.ru', 'https://www.truruki.ru'],
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
   credentials: false,
 }));
 
 // Для обработки OPTIONS-запросов (preflight)
-app.options('https://truruky.ru', cors());
+app.options('*', cors());
 
 // Приём JPEG кадров с камеры
 app.post('/upload', express.raw({ type: 'image/jpeg', limit: '5mb' }), (req, res) => {
