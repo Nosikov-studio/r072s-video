@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
   res.send(`
     <html>
       <body>
-        <h2>Видеотрансляция с удалённой камеры</h2>
+        <h2>Видеотрансляция с удалённой камеры +</h2>
          <img src="/stream" style="max-width: 100%">
       </body>
     </html>
